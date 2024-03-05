@@ -1,8 +1,8 @@
 //------------------------------------------------------------------------------------------------
-modded class SCR_RegeneratingHitZone : ScriptedHitZone
+modded class SCR_RegeneratingHitZone : SCR_HitZone
 {
 	//-----------------------------------------------------------------------------------------------------------
-	override void OnDamage(EDamageType type, float damage, HitZone pOriginalHitzone, notnull Instigator instigator, inout vector hitTransform[3], float speed, int colliderID, int nodeID)
+	override void OnDamage(notnull BaseDamageContext damageContext)
 	{
 		//PrintFormat("HitZone OnDamage HitZone (Direct): %1 (%4) Damage: %2 Type: %3", pOriginalHitzone.GetName(), damage, type, pOriginalHitzone.GetHealth());
 
@@ -29,6 +29,6 @@ modded class SCR_RegeneratingHitZone : ScriptedHitZone
 			}
 		}
 		
-		super.OnDamage(type, damage, pOriginalHitzone, instigator, hitTransform, speed, colliderID, nodeID);
+		super.OnDamage(damageContext);
 	}
 };
